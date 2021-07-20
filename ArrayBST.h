@@ -1,7 +1,7 @@
 #ifndef ArrayBST_h
 #define ArrayBST_h
 
-#define MAX_NUM_NODES 10
+#define MAX_NUM_NODES 10000
 
 #include "AbstractBST.h"
 

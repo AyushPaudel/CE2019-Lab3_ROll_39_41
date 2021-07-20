@@ -81,6 +81,7 @@ void ArrayBinarySearchTree::min(int &output) {
 }
 
 
+
 void ArrayBinarySearchTree::max(int &output) {
     
     if (isEmpty()) {
@@ -101,7 +102,6 @@ void ArrayBinarySearchTree::max(int &output) {
 }
 
 void ArrayBinarySearchTree::inorder() {
-    std::cout << "Inorder traversal yields " << std::endl;
     this->inorder(1);
     std::cout << std::endl;
 }
@@ -110,7 +110,7 @@ void ArrayBinarySearchTree::inorder(int index, char sep) {
     if (index < MAX_NUM_NODES && nodes[index] != NULL) {
         this->inorder(2 * index);
         std::cout << nodes[index]->key << sep;
-        this->inorder(2 * index + 1);
+        this->inorder(2 * index+1);
     }
 }
 
@@ -151,11 +151,11 @@ void ArrayBinarySearchTree::remove(int targetKey)
         int n2d_i = this->index(targetKey);
         int min_nd_i = this->index(targetKey);
         int max_nd_i = min_nd_i;
+        //when both left and right part are empty
         if (this->nodes[min_nd_i * 2] == NULL && this->nodes[min_nd_i * 2 + 1] == NULL)
         {
             this->nodes[min_nd_i] = NULL;
         }
-
 
         else if (this->nodes[min_nd_i * 2 + 1] != NULL)
         {

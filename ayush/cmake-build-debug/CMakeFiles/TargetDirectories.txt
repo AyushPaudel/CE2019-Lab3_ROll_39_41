@@ -1,3 +1,0 @@
-/home/cdjk/Documents/gith/ayush/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/cdjk/Documents/gith/ayush/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/cdjk/Documents/gith/ayush/cmake-build-debug/CMakeFiles/ayush.dir

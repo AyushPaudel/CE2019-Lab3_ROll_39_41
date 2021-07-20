@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/ayush.dir/ArrayBST.cpp.o CMakeFiles/ayush.dir/main.cpp.o -o ayush 
