@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cdjk/Documents/gith/ayush/AbstractBST.h
+
+/home/cdjk/Documents/gith/ayush/ArrayBST.h
+AbstractBST.h
+/home/cdjk/Documents/gith/ayush/AbstractBST.h
+
+/home/cdjk/Documents/gith/ayush/main.cpp
+iostream
+-
+ArrayBST.h
+/home/cdjk/Documents/gith/ayush/ArrayBST.h
+
