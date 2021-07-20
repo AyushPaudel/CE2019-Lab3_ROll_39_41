@@ -41,7 +41,7 @@ void ArrayBinarySearchTree::add(int key) {
     
 }
 
-bool ArrayBinarySearchTree::exists(int targetKey) {
+bool ArrayBinarySearchTree::exists(int deleteKey) {
     
     int i = 1;
     bool found = false;
@@ -49,10 +49,10 @@ bool ArrayBinarySearchTree::exists(int targetKey) {
         ArrayNode* node = this->nodes[i];
         if (node == NULL) {
             break;
-        } else if (node->key == targetKey) {
+        } else if (node->key == deleteKey) {
             found = true;
             break;
-        } else if (node->key < targetKey) {
+        } else if (node->key < deleteKey) {
             i = 2 * i + 1;
         } else {
             i = 2 * i;
@@ -115,7 +115,7 @@ void ArrayBinarySearchTree::inorder(int index, char sep) {
 }
 
 
-int ArrayBinarySearchTree::index(int targetKey)
+int ArrayBinarySearchTree::index(int target)
 {
 
     int i = 1;
@@ -127,12 +127,12 @@ int ArrayBinarySearchTree::index(int targetKey)
         {
             break;
         }
-        else if (node->key == targetKey)
+        else if (node->key == target)
         {
             index = i;
             break;
         }
-        else if (node->key < targetKey)
+        else if (node->key < target)
         {
             i = 2 * i + 1;
         }
@@ -144,61 +144,61 @@ int ArrayBinarySearchTree::index(int targetKey)
     return index;
 }
 
-void ArrayBinarySearchTree::remove(int targetKey)
+void ArrayBinarySearchTree::remove(int deleteKey)
 {
-    if (this->exists(targetKey)) 
+    if (this->exists(deleteKey)) 
 {
-        int n2d_i = this->index(targetKey);
-        int min_nd_i = this->index(targetKey);
-        int max_nd_i = min_nd_i;
+        int index_del_node = this->index(deleteKey);
+        int index_min = this->index(deleteKey);
+        int index_max = index_min;
         //when both left and right part are empty
-        if (this->nodes[min_nd_i * 2] == NULL && this->nodes[min_nd_i * 2 + 1] == NULL)
+        if (this->nodes[index_min * 2] == NULL && this->nodes[index_min * 2 + 1] == NULL)
         {
-            this->nodes[min_nd_i] = NULL;
+            this->nodes[index_min] = NULL;
         }
 
-        else if (this->nodes[min_nd_i * 2 + 1] != NULL)
+        else if (this->nodes[index_min * 2 + 1] != NULL)
         {
-            min_nd_i = min_nd_i * 2 + 1;
-          while (this->nodes[min_nd_i] != NULL)
+            index_min = index_min * 2 + 1;
+          while (this->nodes[index_min] != NULL)
             {
-                if (this->nodes[min_nd_i * 2] != NULL)
+                if (this->nodes[index_min * 2] != NULL)
                 {
-                    while (this->nodes[min_nd_i * 2] != NULL)
+                    while (this->nodes[index_min * 2] != NULL)
                     {
-                        min_nd_i = min_nd_i * 2;
+                        index_min = index_min * 2;
                     }
                 }
-                this->nodes[n2d_i] = this->nodes[min_nd_i];
-                n2d_i = min_nd_i;
-                this->nodes[min_nd_i] = NULL;
-                if (this->nodes[min_nd_i * 2 + 1] != NULL)
+                this->nodes[index_del_node] = this->nodes[index_min];
+                index_del_node = index_min;
+                this->nodes[index_min] = NULL;
+                if (this->nodes[index_min * 2 + 1] != NULL)
                 {
-                    min_nd_i = min_nd_i * 2 + 1;
+                    index_min = index_min * 2 + 1;
                 }
             }
         }
-        else if (this->nodes[max_nd_i * 2 + 1] == NULL)
+        else if (this->nodes[index_max * 2 + 1] == NULL)
         {
-            max_nd_i = max_nd_i * 2;
-            while (this->nodes[max_nd_i] != NULL)
+            index_max = index_max * 2;
+            while (this->nodes[index_max] != NULL)
             {
-                if (this->nodes[max_nd_i * 2 + 1] != NULL)
+                if (this->nodes[index_max * 2 + 1] != NULL)
               
 
                 {
-                    while (this->nodes[max_nd_i * 2 + 1] != NULL)
+                    while (this->nodes[index_max * 2 + 1] != NULL)
                     {
-                        max_nd_i = max_nd_i * 2 + 1;
+                        index_max = index_max * 2 + 1;
                     }
                 }
 
-                this->nodes[n2d_i] = this->nodes[max_nd_i];
-                n2d_i = max_nd_i;
-                this->nodes[max_nd_i] = NULL;
-                if (this->nodes[max_nd_i * 2] != NULL)
+                this->nodes[index_del_node] = this->nodes[index_max];
+                index_del_node = index_max;
+                this->nodes[index_max] = NULL;
+                if (this->nodes[index_max * 2] != NULL)
                 {
-                    max_nd_i = max_nd_i * 2;
+                    index_max = index_max * 2;
                 }
             }
         }

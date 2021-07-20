@@ -26,7 +26,7 @@ public:
     
     bool exists(int targetKey);
 
-    void remove(int targetKey);
+    void remove(int deleteKey);
 
     void inorder();
     int index(int targetKey);
